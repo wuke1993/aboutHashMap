@@ -18,21 +18,21 @@ public class TestConcurrentHashMap {
 			public void run() {
 				map.put(3, 33);
 			}
-		};
+		}.start();
 		
 		new Thread("Thread2") {
 			@Override
 			public void run() {
 				map.put(4, 44);
 			}
-		};
+		}.start();
 		
 		new Thread("Thread3") {
 			@Override
 			public void run() {
 				map.put(7, 77);
 			}
-		};
+		}.start();
 		
 		System.out.println(map);
 	}
